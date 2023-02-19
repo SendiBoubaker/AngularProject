@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProductService } from './product.service';
+import { Product } from './Product';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+products : Product[]=[];
+productService;
+
+constructor() {
+  this.productService=new ProductService;
+}
+
+getProducts(){
+  this.products=this.productService.getallProducts();
+}
+
+mydate = new Date();
+myJson = {name :'Boubaker', age:'27', department:'developer',
+adress: 'mérigniac', phonenumber:'52733909'};
+myArrayNum =[22,33,44,55,66,77,88];
 
 printNumber : number = 12;
 fullName : string ="Oussema Sendi";
